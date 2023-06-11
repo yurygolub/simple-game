@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private const float PlayerSpeed = 15;
+    private const float PlayerSpeed = 50;
 
     [SerializeField]
     private FallingBoxBehaviour fallingBoxBehaviour;
