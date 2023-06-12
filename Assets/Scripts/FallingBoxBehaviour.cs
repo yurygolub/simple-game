@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FallingBoxBehaviour : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class FallingBoxBehaviour : MonoBehaviour
         {
             this.gameOver = true;
             Debug.Log("GAME OVER!");
+
+            SceneManager.LoadScene(2);
         }
     }
 }
