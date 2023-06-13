@@ -3,10 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class FallingBoxBehaviour : MonoBehaviour
 {
+    private static int Score;
+
     [SerializeField]
     private GameObject prefab;
-
     private bool gameOver;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Score = PlayerPrefs.GetInt("Score");
+    }
 
     public void SpawnFallingBox()
     {
@@ -21,6 +28,11 @@ public class FallingBoxBehaviour : MonoBehaviour
         {
             this.SpawnFallingBox();
             Destroy(gameObject);
+
+            Score++;
+
+            PlayerPrefs.SetInt("Score", Score);
+            PlayerPrefs.Save();
         }
         else if (collision.gameObject.tag == "GroundTag")
         {
