@@ -12,4 +12,18 @@ public class MenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
 }

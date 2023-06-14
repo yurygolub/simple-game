@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private float inputHorizontal;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         this.rb = this.gameObject.GetComponent<Rigidbody2D>();
         this.fallingBoxBehaviour.SpawnFallingBox();
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Score = PlayerPrefs.GetInt("Score");
         scoreText.text = $"Score: {Score}";
@@ -36,6 +37,11 @@ public class PlayerController : MonoBehaviour
         if (this.inputHorizontal != 0)
         {
             this.rb.AddForce(new Vector2(this.inputHorizontal * PlayerSpeed, 0));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

@@ -9,17 +9,17 @@ public class FallingBoxBehaviour : MonoBehaviour
     private GameObject prefab;
     private bool gameOver;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Score = PlayerPrefs.GetInt("Score");
-    }
-
     public void SpawnFallingBox()
     {
         const float Min = -8, Max = 8, Height = 6;
 
         Instantiate(prefab, new Vector3(Random.Range(Min, Max), Height, 0), Quaternion.identity);
+    }
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        Score = PlayerPrefs.GetInt("Score");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
